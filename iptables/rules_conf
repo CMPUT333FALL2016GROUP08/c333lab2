@@ -26,8 +26,5 @@ iptables -t nat -A PREROUTING -p tcp -d 10.229.8.2 --dport 80 -j DNAT --to 10.22
 iptables -A INPUT -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
 iptables -A OUTPUT -o eth0 -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT
 
-# Establish outbound connection
-#iptables -A OUTPUT -o eth0 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
-#iptables -A INPUT -i eth0 -p tcp --sport 443 -m state --state ESTABLISHED -j ACCEPT
 # Outbound Restriction
 iptables -A OUTPUT -d 10.229.9.1, 10.229.100.9,10.229.9.2,10.229.100.96,10.229.96.* -j LOG_DROP
