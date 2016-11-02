@@ -1,0 +1,4 @@
+# Reset all existing rules.
+iptables -F
+
+# Set default chain rules
